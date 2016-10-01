@@ -1,0 +1,4 @@
+INSERT INTO public.budget (bud_id, bud_description, "bud_category ", bud_budgeted_amount, bud_actual_amount) VALUES (1, 'Survival fuel', 'Food', 125, 100);
+INSERT INTO public.budget (bud_id, bud_description, "bud_category ", bud_budgeted_amount, bud_actual_amount) VALUES (4, 'Speed of light', 'Transportation', 25, 25);
+INSERT INTO public.budget (bud_id, bud_description, "bud_category ", bud_budgeted_amount, bud_actual_amount) VALUES (3, 'Munchies', 'Snacks', 75, 75);
+INSERT INTO public.budget (bud_id, bud_description, "bud_category ", bud_budgeted_amount, bud_actual_amount) VALUES (2, 'Power fluid', 'Coffee', 35, 30);

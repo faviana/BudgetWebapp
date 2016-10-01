@@ -1,0 +1,10 @@
+INSERT INTO public.budget (bud_id, bud_description, bud_category, bud_budgeted_amount, bud_actual_amount) VALUES (10, 'Credo', 'Coffee', 5, 5);
+INSERT INTO public.budget (bud_id, bud_description, bud_category, bud_budgeted_amount, bud_actual_amount) VALUES (9, 'Credo', 'Coffee', 5, 5);
+INSERT INTO public.budget (bud_id, bud_description, bud_category, bud_budgeted_amount, bud_actual_amount) VALUES (8, 'Credo', 'Coffee', 5, 5);
+INSERT INTO public.budget (bud_id, bud_description, bud_category, bud_budgeted_amount, bud_actual_amount) VALUES (7, 'Credo', 'Coffee', 5, 5);
+INSERT INTO public.budget (bud_id, bud_description, bud_category, bud_budgeted_amount, bud_actual_amount) VALUES (6, 'Credo', 'Coffee', 5, 5);
+INSERT INTO public.budget (bud_id, bud_description, bud_category, bud_budgeted_amount, bud_actual_amount) VALUES (5, 'Wahlburgers', 'Food', 20, 13);
+INSERT INTO public.budget (bud_id, bud_description, bud_category, bud_budgeted_amount, bud_actual_amount) VALUES (4, 'Schumann''s', 'Food', 20, 15);
+INSERT INTO public.budget (bud_id, bud_description, bud_category, bud_budgeted_amount, bud_actual_amount) VALUES (3, 'Kres', 'Food', 20, 20);
+INSERT INTO public.budget (bud_id, bud_description, bud_category, bud_budgeted_amount, bud_actual_amount) VALUES (2, 'Ember', 'Food', 20, 20);
+INSERT INTO public.budget (bud_id, bud_description, bud_category, bud_budgeted_amount, bud_actual_amount) VALUES (1, 'Ceviche', 'Food', 20, 20);
