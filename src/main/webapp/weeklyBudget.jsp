@@ -20,34 +20,50 @@
 
 <body>
 
-<h1>My Weekly Budget list</h1>
+<h1 style="font-family: 'American Typewriter'"><center>Weekly Budget</center></h1>
+
+<p>
+<ul>
+    <li>
+        <a href="summaryPage.jsp"><font color = "#a9a9a9">Go to Summary Page</font></a>
+    </li>
+</ul>
+</p>
 
 
 
 <form method="post" action="/mybudget/budget">
 
-    <table>
-        <tr><td>Description</td><td>Category</td><td>Budgeted Amount</td><td>Actual Amount</td></tr>
+    <table align="center">
+        <tr><th>Description</th><th>Category</th><th>Budgeted Amount</th><th>Actual Amount</th></tr>
 
-        <c:forEach items="${budget}" var="budgetItem">
-
-            <tr><td><c:out value="${budgetItem.description}"/>
-            <td><c:out value="${budgetItem.category}"/></td>
-            <td><c:out value="${budgetItem.budgetedAmount}"/></td>
-            <td><c:out value="${budgetItem.actualAmount}"/></td></tr>
-        </c:forEach>
+      <c:forEach items="${budget}" var="budgetItem">
+            <tr>
+                <td>
+                    <center>
+                        <c:out value="${budgetItem.description}"/>
+                    </center>
+                </td>
+                <td>
+                    <center>
+                        <c:out value="${budgetItem.category}"/>
+                </td>
+                    </center>
+                <td>
+                    <center>
+                        <c:out value="${budgetItem.budgetedAmount}"/>
+                </td>
+                    </center>
+                <td>
+                    <center>
+                        <c:out value="${budgetItem.actualAmount}"/>
+                </td>
+                    </center>
+            </tr>
+                        </c:forEach>
 
     </table>
-
-    <p></p>
 </form>
-
-<p></p>
-
-<ul>
-    <li><a href="summeryPage.jsp">Go to...</a>
-    </li>
-</ul>
 
 </body>
 </html>

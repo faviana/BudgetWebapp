@@ -16,11 +16,6 @@ import java.util.List;
  */
 public class CreateServlet extends HttpServlet {
 
-    public static final String NAVIGATION_PARAM= "nav";
-    public static final String LOCATION_BUDGET_LIST = "list";
-    public static final String REQUEST_SCOPE_BUDGET = "budget";
-    public static final String JSP_DEST_BUDGET_LIST = "/weeklyBudget.jsp";
-    public static final String JSP_DEST_EXCEPTION = "/exception.jsp";
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -29,35 +24,41 @@ public class CreateServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
-            String nextPage = req.getParameter(NAVIGATION_PARAM);
-            BudgetService budgetsrv = new BudgetService();
 
-            // get list
-            List<Budget> all = budgetsrv.getAllBudgets();
+            //call reference to Budget List
+            BudgetService bsv = new BudgetService();
 
-            if (nextPage == null || nextPage.equalsIgnoreCase(LOCATION_BUDGET_LIST)) {
-                req.setAttribute(REQUEST_SCOPE_BUDGET, all);
+            //getting all objects from Budget List
+            List<Budget> allbudgets = bsv.getAllBudgets();
 
-                //calculate total budget amount and actual amount
+            //sending Budget List into Session
+            req.getSession().setAttribute("budget", allbudgets);
 
-                double x=0;
-                double y =0;
 
-                for (Budget tmp : all) {
-                    x=x + tmp.getBudgetedAmount();
-                    y=y + tmp.getActualAmount();
-                }
+            //define variables
+            double x = 0;
+            double y = 0;
 
-                //forward to list page
+            //for loop
+            for (Budget b : allbudgets) {
 
-                RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher(JSP_DEST_BUDGET_LIST);
-                dispatcher.forward(req, resp);
-
+                //calculates total for budgetAmount and actualAmount
+                x = x + b.getBudgetedAmount();
+                y = y + b.getActualAmount();
             }
 
-        } catch (Throwable t) {
+            //sending total of budgetAmount and actualAmount into Session
+            req.getSession().setAttribute("totalbudgetedAmount", x);
+            req.getSession().setAttribute("totalactualAmount", y);
+
+            //forward to summaryPage.jsp
+            RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/summaryPage.jsp");
+            dispatcher.forward(req, resp);
+
+            //catch exception
+        }catch (Throwable t) {
             t.printStackTrace();
-            RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher(JSP_DEST_EXCEPTION);
+            RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/exception.jsp");
             dispatcher.forward(req, resp);
         }
     }

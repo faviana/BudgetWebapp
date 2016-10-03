@@ -6,12 +6,22 @@
   <display-name>Archetype Created Web Application</display-name>
 
   <servlet>
-    <servlet-name>MyServlet</servlet-name>
+    <servlet-name>create</servlet-name>
     <servlet-class>com.ironyard.servlet.CreateServlet</servlet-class>
   </servlet>
 
   <servlet-mapping>
-    <servlet-name>MyServlet</servlet-name>
+    <servlet-name>create</servlet-name>
     <url-pattern>/budget</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>search</servlet-name>
+    <servlet-class>com.ironyard.servlet.SearchServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>search</servlet-name>
+    <url-pattern>/weekly</url-pattern>
   </servlet-mapping>
 </web-app>

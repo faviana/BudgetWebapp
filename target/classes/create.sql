@@ -6,4 +6,4 @@ CREATE TABLE budget
     bud_budgeted_amount NUMERIC,
     bud_actual_amount NUMERIC
 );
-CREATE UNIQUE INDEX budget_bud_id_uindex ON budget (bud_id);
+CREATE UNIQUE INDEX budget_bud_id_uindex ON budget (bud_id);QUE INDEX budget_bud_id_uindex ON budget (bud_id);

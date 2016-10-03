@@ -23,7 +23,7 @@
 </head>
 <body>
 <table>
-    <tr><td>Category</td><td>Budgeted Amount</td><td>Actual Amount</td></tr>
+    <tr><td><a href="/mybudget/category.jsp">Category</a></td><td>Budgeted Amount</td><td>Actual Amount</td></tr>
 
     <c:forEach items="${budget}" var="budgetItem">
 

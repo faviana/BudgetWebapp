@@ -26,7 +26,6 @@ public class DbServiceTest {
                 System.out.println(rs.getString("bud_description"));
             }
             Assert.assertTrue(foundSomething);
-
         }
 
     }
