@@ -19,7 +19,7 @@ public class SearchServlet extends HttpServlet {
         protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
             // get the movies
             BudgetService bs = new BudgetService();
-            String destination = "budget";
+            String destination = "/weeklybudget.jsp";
             try {
                 // get the search text
                 String searchByText = req.getParameter("searchtext");

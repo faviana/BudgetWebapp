@@ -53,8 +53,7 @@ public class BudgetService {
         DbService Dbs = new DbService();
         Connection c = Dbs.getConnection();
         Statement s = c.createStatement();
-        ResultSet rs = s.executeQuery(
-                "SELECT bud_category, SUM (bud_budgeted_amount) AS cat_total FROM budget GROUP BY bud_category;");
+        ResultSet rs = s.executeQuery("SELECT bud_category, SUM (bud_budgeted_amount) AS bud_total FROM budget GROUP BY bud_category;");
         while(rs.next()){
             BudgetStat tmp = new BudgetStat();
             tmp.setCategory(rs.getString("bud_category"));
@@ -70,6 +69,8 @@ public class BudgetService {
         List<Budget> found = new ArrayList<>();
         while(rs.next()){
             Budget tmp = new Budget();
+            tmp.setId(rs.getInt("bud_id"));
+            tmp.setDescription(rs.getString("bud_description"));
             tmp.setCategory(rs.getString("bud_category"));
             tmp.setBudgetedAmount(rs.getDouble("bud_budgeted_amount"));
             tmp.setActualAmount(rs.getDouble("bud_actual_amount"));

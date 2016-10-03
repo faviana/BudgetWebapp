@@ -32,7 +32,13 @@
 
 
 
-<form method="post" action="/mybudget/budget">
+<form method="post" action="">
+
+    Search <input type="text" name="searchtext"/>
+    <br>
+    <input type="submit" name="Filter Results"/>
+
+    </form>
 
     <table align="center">
         <tr><th>Description</th><th>Category</th><th>Budgeted Amount</th><th>Actual Amount</th></tr>
@@ -63,7 +69,6 @@
                         </c:forEach>
 
     </table>
-</form>
 
 </body>
 </html>

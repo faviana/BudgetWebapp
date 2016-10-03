@@ -1,5 +1,10 @@
-INSERT INTO "MY_TABLE"(foo_restaurant, foo_price, foo_tip, foo_total_amount, foo_id, foo_description, foo_drinks, foo_drinks_price) VALUES ('Ceviche', 13.95, 4.05, 21, 1, 'Gambas Romesco', 'Soda', 3);
-INSERT INTO "MY_TABLE"(foo_restaurant, foo_price, foo_tip, foo_total_amount, foo_id, foo_description, foo_drinks, foo_drinks_price) VALUES ('Kres Chop House', 14, 4, 21, 2, 'Pan Seared Open face steak sandwidch ', 'Soda', 3);
-INSERT INTO "MY_TABLE"(foo_restaurant, foo_price, foo_tip, foo_total_amount, foo_id, foo_description, foo_drinks, foo_drinks_price) VALUES ('Wahlburgers', 7.5, 2.5, 13, 3, 'BBQ burger', 'Soda', 3);
-INSERT INTO "MY_TABLE"(foo_restaurant, foo_price, foo_tip, foo_total_amount, foo_id, foo_description, foo_drinks, foo_drinks_price) VALUES ('Ember', 13.95, 4.05, 21, 4, 'Smoke House Brisket Plate', 'Soda', 3);
-INSERT INTO "MY_TABLE"(foo_restaurant, foo_price, foo_tip, foo_total_amount, foo_id, foo_description, foo_drinks, foo_drinks_price) VALUES ('Schumann''s', 8.95, 3.05, 15, 5, 'FRIDAY Special', 'Soda', 3);
+INSERT INTO public.budget (bud_id, bud_description, bud_category, bud_budgeted_amount, bud_actual_amount) VALUES (10, 'Credo', 'Coffee', 5, 5);
+INSERT INTO public.budget (bud_id, bud_description, bud_category, bud_budgeted_amount, bud_actual_amount) VALUES (9, 'Credo', 'Coffee', 5, 5);
+INSERT INTO public.budget (bud_id, bud_description, bud_category, bud_budgeted_amount, bud_actual_amount) VALUES (8, 'Credo', 'Coffee', 5, 5);
+INSERT INTO public.budget (bud_id, bud_description, bud_category, bud_budgeted_amount, bud_actual_amount) VALUES (7, 'Credo', 'Coffee', 5, 5);
+INSERT INTO public.budget (bud_id, bud_description, bud_category, bud_budgeted_amount, bud_actual_amount) VALUES (6, 'Credo', 'Coffee', 5, 5);
+INSERT INTO public.budget (bud_id, bud_description, bud_category, bud_budgeted_amount, bud_actual_amount) VALUES (5, 'Wahlburgers', 'Food', 20, 13);
+INSERT INTO public.budget (bud_id, bud_description, bud_category, bud_budgeted_amount, bud_actual_amount) VALUES (4, 'Schumann''s', 'Food', 20, 15);
+INSERT INTO public.budget (bud_id, bud_description, bud_category, bud_budgeted_amount, bud_actual_amount) VALUES (3, 'Kres', 'Food', 20, 20);
+INSERT INTO public.budget (bud_id, bud_description, bud_category, bud_budgeted_amount, bud_actual_amount) VALUES (2, 'Ember', 'Food', 20, 20);
+INSERT INTO public.budget (bud_id, bud_description, bud_category, bud_budgeted_amount, bud_actual_amount) VALUES (1, 'Ceviche', 'Food', 20, 20);
