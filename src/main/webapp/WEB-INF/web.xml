@@ -6,32 +6,33 @@
   <display-name>Archetype Created Web Application</display-name>
 
   <servlet>
-    <servlet-name>CreateServlet</servlet-name>
-    <servlet-class>com.ironyard.servlet.CreateServlet</servlet-class>
+    <servlet-name>BudgetServlet</servlet-name>
+    <servlet-class>com.ironyard.servlet.BudgetServlet</servlet-class>
   </servlet>
 
   <servlet-mapping>
-    <servlet-name>CreateServlet</servlet-name>
-    <url-pattern>/budget</url-pattern>
+    <servlet-name>BudgetServlet</servlet-name>
+    <url-pattern>/detail</url-pattern>
   </servlet-mapping>
 
   <servlet>
-    <servlet-name>SearchServlet</servlet-name>
-    <servlet-class>com.ironyard.servlet.SearchServlet</servlet-class>
+    <servlet-name>BudgetSearchServlet</servlet-name>
+    <servlet-class>com.ironyard.servlet.BudgetSearchServlet</servlet-class>
   </servlet>
 
   <servlet-mapping>
-    <servlet-name>SearchServlet</servlet-name>
-    <url-pattern>/weekly</url-pattern>
+    <servlet-name>BudgetSearchServlet</servlet-name>
+    <url-pattern>/search</url-pattern>
   </servlet-mapping>
 
     <servlet>
-        <servlet-name>StatServlet</servlet-name>
-        <servlet-class>com.ironyard.servlet.SearchServlet</servlet-class>
+        <servlet-name>BudgetStatServlet</servlet-name>
+        <servlet-class>com.ironyard.servlet.BudgetStatServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>StatServlet</servlet-name>
-        <url-pattern>/weekly</url-pattern>
+        <servlet-name>BudgetStatServlet</servlet-name>
+        <url-pattern>/summary</url-pattern>
     </servlet-mapping>
+
 </web-app>

@@ -25,14 +25,14 @@
 <p>
 <ul>
     <li>
-        <a href="summaryPage.jsp"><font color = "#a9a9a9">Go to Summary Page</font></a>
+        <a href="/mybudget/summary"><font color = "#a9a9a9">Go to Summary Page</font></a>
     </li>
 </ul>
 </p>
 
 
 
-<form method="post" action="">
+<form method="post" action="/mybudget/search">
 
     Search <input type="text" name="searchtext"/>
     <br>

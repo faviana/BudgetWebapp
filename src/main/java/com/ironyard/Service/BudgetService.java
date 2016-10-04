@@ -53,12 +53,13 @@ public class BudgetService {
         DbService Dbs = new DbService();
         Connection c = Dbs.getConnection();
         Statement s = c.createStatement();
-        ResultSet rs = s.executeQuery("SELECT bud_category, SUM (bud_budgeted_amount) AS bud_total FROM budget GROUP BY bud_category;");
+        ResultSet rs = s.executeQuery("SELECT bud_category, SUM (bud_budgeted_amount) AS bud_total, sum(bud_actual_amount) AS bud_total_a FROM budget GROUP BY bud_category;");
         while(rs.next()){
             BudgetStat tmp = new BudgetStat();
             tmp.setCategory(rs.getString("bud_category"));
-            tmp.setTotalBudgetedAmount(rs.getInt("bud_budgeted_amount"));
-            tmp.setTotalActualAmount(rs.getInt("bud_actual_amount"));
+            tmp.setTotalBudgetedAmount(rs.getDouble("bud_total"));
+            tmp.setTotalActualAmount(rs.getInt("bud_total_a"));
+
             found.add(tmp);
         }
 

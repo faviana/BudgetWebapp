@@ -18,23 +18,45 @@ import java.util.List;
 /**
  * Created by favianalopez on 10/3/16.
  */
-public class StatServlet extends HttpServlet {
+public class BudgetStatServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+        //
         String destination = "/summaryPage.jsp";
         try {
+            //get stats by cat
             BudgetService ms = new BudgetService();
-
             req.setAttribute("budgetstats", ms.getBudgetStats() );
 
-            // old way
-            //req.setAttribute("budgetstats", calculateMovieStats() );
+            // get stats for all items (totals)
+            List<Budget> allbudgets = ms.getAllBudgets();
+
+            //define variables
+            double x = 0;
+            double y = 0;
+
+            //for loop
+            for (Budget b : allbudgets) {
+
+                //calculates total for budgetAmount and actualAmount
+                x = x + b.getBudgetedAmount();
+                y = y + b.getActualAmount();
+            }
+
+            //sending total of budgetAmount and actualAmount into Session
+            req.getSession().setAttribute("totalbudgetedAmount", x);
+            req.getSession().setAttribute("totalactualAmount", y);
+
+            BudgetService bs = new BudgetService();
+
+            req.setAttribute("budgetTotal", bs.getBudgetStats());
+
 
         } catch (SQLException e) {
             e.printStackTrace();
-            destination = "/error.jsp";
+            destination = "/exception.jsp";
         }
 
         // forward to proper JSP
@@ -48,7 +70,7 @@ public class StatServlet extends HttpServlet {
         // put stats into request scope
         List<Budget> all = ms.getAllBudgets();
 
-        // store movie sum by cat
+        // store budget sum by cat
         HashMap<String, BudgetStat> budgetStats = new HashMap<>();
 
         for(Budget tmpB: all){

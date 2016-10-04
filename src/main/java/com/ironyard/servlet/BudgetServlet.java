@@ -14,7 +14,7 @@ import java.util.List;
 /**
  * Created by favianalopez on 9/29/16.
  */
-public class CreateServlet extends HttpServlet {
+public class BudgetServlet extends HttpServlet {
 
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -25,34 +25,17 @@ public class CreateServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
 
-            //call reference to Budget List
+            //get reference to Budget List
             BudgetService bsv = new BudgetService();
 
             //getting all objects from Budget List
             List<Budget> allbudgets = bsv.getAllBudgets();
 
-            //sending Budget List into Session
-            req.getSession().setAttribute("budget", allbudgets);
-
-
-            //define variables
-            double x = 0;
-            double y = 0;
-
-            //for loop
-            for (Budget b : allbudgets) {
-
-                //calculates total for budgetAmount and actualAmount
-                x = x + b.getBudgetedAmount();
-                y = y + b.getActualAmount();
-            }
-
-            //sending total of budgetAmount and actualAmount into Session
-            req.getSession().setAttribute("totalbudgetedAmount", x);
-            req.getSession().setAttribute("totalactualAmount", y);
+            //request all objects
+            req.setAttribute("budget", allbudgets);
 
             //forward to summaryPage.jsp
-            RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/summaryPage.jsp");
+            RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/weeklyBudget.jsp");
             dispatcher.forward(req, resp);
 
             //catch exception

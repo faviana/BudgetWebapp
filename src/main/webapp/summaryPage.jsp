@@ -31,31 +31,52 @@
 
     <ul>
         <li>
-            <a href="weeklyBudget.jsp"><font color = "#a9a9a9">Go to Weekly Report</font></a>
+            <a href="/mybudget/detail"><font color = "#a9a9a9">Go to Weekly Report</font></a>
         </li>
     </ul>
 </p>
 
 <table align="center">
-    <tr><th>Category</th><th>Budgeted Amount</th><th>Actual Amount</th></tr>
-    <tr>
-        <td>
-            <center>
-                <c:out value="${category}"/>
-            </center>
-        </td>
-        <td>
-            <center>
-                <c:out value="${totalbudgetedAmount}"/>
-            </center>
-        </td>
-        <td>
-            <center>
-                <c:out value="${totalactualAmount}"/>
-            </center>
-        </td>
-    </tr>
+    <tr><th>CATEGORY</th><th>BUDGETED AMOUNT</th><th>ACTUAL AMOUNT</th></tr>
 
+    <c:forEach items="${budgetTotal}" var="aTotal">
+
+        <tr>
+            <td>
+                <center>
+                    <c:out value="${aTotal.category}"/>
+                </center>
+
+            </td>
+
+            <td>
+                <center>
+                    <c:out value="${aTotal.totalBudgetedAmount}"/>
+                </center>
+            </td>
+            <td>
+                <center>
+                    <c:out value="${aTotal.totalActualAmount}"/>
+                </center>
+            </td>
+    </c:forEach>
+
+        <tr>
+            <th>
+                <center>
+                    TOTAL
+                </center>
+            </th>
+            <td>
+                <center>
+                    <c:out value="${totalbudgetedAmount}"/>
+                </center>
+            </td>
+            <th>
+                <center>
+                    <c:out value="${totalactualAmount}"/>
+                </center>
+            </th>
 </table>
 
 </body>

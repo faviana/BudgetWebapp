@@ -1,5 +1,3 @@
-package com.ironyard.servlet;
-
 import com.ironyard.Service.BudgetService;
 import com.ironyard.data.Budget;
 import com.ironyard.data.BudgetStat;

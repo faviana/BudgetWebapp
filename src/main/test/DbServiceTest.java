@@ -1,5 +1,4 @@
-package com.ironyard;
-
+import com.ironyard.DbService;
 import org.junit.Assert;
 
 import java.sql.Connection;
