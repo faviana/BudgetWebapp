@@ -1,3 +1,4 @@
 com/ironyard/servlet/BudgetServlet.class
 com/ironyard/servlet/BudgetSearchServlet.class
 com/ironyard/servlet/BudgetStatServlet.class
+com/ironyard/servlet/BudgetCreateServlet.class

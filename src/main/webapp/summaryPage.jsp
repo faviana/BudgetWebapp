@@ -67,11 +67,11 @@
                     TOTAL
                 </center>
             </th>
-            <td>
+            <th>
                 <center>
                     <c:out value="${totalbudgetedAmount}"/>
                 </center>
-            </td>
+            </th>
             <th>
                 <center>
                     <c:out value="${totalactualAmount}"/>

@@ -35,4 +35,14 @@
         <url-pattern>/summary</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>BudgetCreateServlet</servlet-name>
+        <servlet-class>com.ironyard.servlet.BudgetCreateServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>BudgetCreateServlet</servlet-name>
+        <url-pattern>/create</url-pattern>
+    </servlet-mapping>
+
 </web-app>

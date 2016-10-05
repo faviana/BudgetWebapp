@@ -68,7 +68,7 @@ public class BudgetService {
 
     private List<Budget> convertResultsToList(ResultSet rs) throws SQLException {
         List<Budget> found = new ArrayList<>();
-        while(rs.next()){
+        while (rs.next()) {
             Budget tmp = new Budget();
             tmp.setId(rs.getInt("bud_id"));
             tmp.setDescription(rs.getString("bud_description"));
@@ -78,6 +78,29 @@ public class BudgetService {
             found.add(tmp);
         }
         return found;
+    }
+
+
+    public void createBudget (Budget myBudget) throws SQLException {
+        DbService myDbs = new DbService();
+        Connection con = null;
+        try{
+            con = myDbs.getConnection();
+            PreparedStatement ps = con.prepareCall("INSERT INTO budget  (bud_id, bud_description, bud_category, bud_budgeted_amount, bud_actual_amount) VALUES (  nextval('budget_SEQ'),?,?,?,?)");
+            ps.setString(1, myBudget.getDescription());
+            ps.setString(2, myBudget.getCategory());
+            ps.setDouble(3, myBudget.getBudgetedAmount());
+            ps.setDouble(4, myBudget.getBudgetedAmount());
+            ps.executeUpdate();
+
+        }catch(SQLException e){
+            e.printStackTrace();
+            con.rollback();
+            throw e;
+
+        }finally {
+            con.close();
+        }
     }
 }
 
