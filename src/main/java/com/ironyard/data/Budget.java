@@ -18,8 +18,15 @@ public class Budget {
         this.actualAmount = actualAmount;
     }
 
-    public Budget() {
+    public Budget(String description, String category, double budgetedAmount, double actualAmount) {
 
+        this.description = description;
+        this.category = category;
+        this.budgetedAmount = budgetedAmount;
+        this.actualAmount = actualAmount;
+    }
+
+    public Budget() {
     }
 
     public long getId() {

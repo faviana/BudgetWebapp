@@ -30,21 +30,33 @@
 </ul>
 </p>
 
-Add New Item <a href="/mybudget/create">HERE</a>
+
+<p>
+<ul>
+    <li>
+        <a href="createBudget.jsp"><font color = "#a9a9a9"> Add New Budget Item</font></a>
+    </li>
+</ul>
+</p>
 
 <form method="post" action="/mybudget/search">
-
+<center>
     Search <input type="text" name="searchtext"/>
     <br>
+    </p>
     <input type="submit" name="Filter Results"/>
-
+</center>
     </form>
 
     <table align="center">
-        <tr><th>Description</th><th>Category</th><th>Budgeted Amount</th><th>Actual Amount</th></tr>
+        <tr><th>Edit Option</th><th>Description</th><th>Category</th><th>Budgeted Amount</th><th>Actual Amount</th><th>Delete Option</th></tr>
 
       <c:forEach items="${budget}" var="budgetItem">
             <tr>
+
+                <td>
+                    <center>
+                        <a href="/mybudget/select?id=<c:out value="${budgetItem.id}"/>">EDIT</a>
                 <td>
                     <center>
                         <c:out value="${budgetItem.description}"/>
@@ -65,6 +77,11 @@ Add New Item <a href="/mybudget/create">HERE</a>
                         <c:out value="${budgetItem.actualAmount}"/>
                 </td>
                     </center>
+                <td>
+                    <center>
+                        <a href="/mybudget/delete?id=<c:out value="${budgetItem.id}"/>">DELETE</a>
+                    </center>
+                </td>
             </tr>
                         </c:forEach>
 

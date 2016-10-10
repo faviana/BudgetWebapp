@@ -7,14 +7,10 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 
 /**
@@ -39,54 +35,41 @@ public class DbServiceTest {
     public void getAllBudgets() throws Exception {
         BudgetService bserv = new BudgetService();
         List<Budget> allOfThem = bserv.getAllBudgets();
-        assertEquals(allOfThem.size(), 1);
+        assertEquals(0, allOfThem.size());
+        // create 2 budgets
+
+        // get all
+
+        // assert equal 2
     }
 
     @Test
     public void search() throws Exception {
         BudgetService bserv = new BudgetService();
-        List<Budget> allOfThem = bserv.search("fo");
-        assertTrue(allOfThem.size() > 0);
+        List<Budget> found = bserv.search("%");
+        assertTrue(found.size() > 0);
     }
-
 
 
     @Test
     public void getBudgetStats() throws Exception {
         BudgetService bserv = new BudgetService();
-        List<BudgetStat> stats = bserv.getBudgetStats();
-        assertTrue(stats.size() > 0);
+        List<BudgetStat> found = bserv.getBudgetStats();
+        assertTrue(found.size() > 0);
     }
 
-    @Test
-        public void getConnection() throws Exception {
-            DbService dbService = new DbService();
-            Connection con = dbService.getConnection();
-            Statement s = con.createStatement();
-            ResultSet rs = s.executeQuery("SELECT * FROM budget");
-
-            boolean foundSomething = false;
-            while(rs.next()){
-                foundSomething = true;
-                System.out.println(rs.getString("bud_description"));
-            }
-            assertTrue(foundSomething);
-        }
 
     @Test
-    public void testSaveNewMovie() throws Exception {
+    public void createBudget() throws Exception {
         BudgetService bserv = new BudgetService();
-        Budget b = new Budget();
+        Budget b = new Budget("Snack", "Chips", 5, 2.50);
         b.setDescription("Chips");
         b.setCategory("Snack");
         b.setBudgetedAmount(5);
         b.setActualAmount(1.50);
 
-        try {
-            bserv.save(b);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        bserv.createBudget(b);
+
 
         List<Budget> found = bserv.search("Chips");
         assertNotNull(found);
@@ -100,4 +83,36 @@ public class DbServiceTest {
 
     }
 
+    @Test
+    public void Update() throws Exception {
+        BudgetService bserv = new BudgetService();
+        bserv.createBudget(new Budget("Snack", "Chips",5,2.50));
+
+        List<Budget> found = bserv.search("category") ;
+
+        Budget bfound = null;
+        assertEquals(bfound.getDescription(), "Chips");
+        assertEquals(bfound.getCategory(), "Snack");
+        assertEquals(bfound.getBudgetedAmount(), 5);
+        assertEquals(bfound.getActualAmount(),1.50);
+
+
+        bserv.update(bfound);
+        found = bserv.search("hello");
+        
     }
+
+    @Test
+    public void Delete() throws Exception {
+
+        BudgetService bserv = new BudgetService();
+        bserv.createBudget(new Budget("Chips", "Snack", 5, 1.5));
+        List<Budget> found = bserv.search("category");
+        // get ref single budge object
+
+        // call delete on service
+
+        // search again and verify nothing found
+
+    }
+}

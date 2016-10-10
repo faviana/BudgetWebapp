@@ -9,42 +9,46 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.SQLException;
 
 /**
- * Created by favianalopez on 10/4/16.
+ * Created by favianalopez on 10/5/16.
  */
-public class BudgetCreateServlet extends HttpServlet {
-
+public class BudgetUpdateServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-        // Set destination to weeklyBudget.jsp
         String destination = "/detail";
 
-        // get the data from request
+
+        // get the request parameters
         String description = req.getParameter("bDescription");
         String category = req.getParameter("bCategory");
         String budgetedAmount = req.getParameter("bB_Amount");
         String actualAmount = req.getParameter("bA_Amount");
+        String id = req.getParameter("bId");
 
-        // create a new budget object
-        Budget myBudget = new Budget("Snack", "Chips", 5, 2.50);
-        myBudget.setDescription(description);
-        myBudget.setCategory(category);
-        myBudget.setBudgetedAmount(Double.parseDouble(budgetedAmount));
-        myBudget.setActualAmount(Double.parseDouble(actualAmount));
+        double baConv = Double.parseDouble(budgetedAmount);
+        double aaConv = Double.parseDouble(actualAmount);
+        long idConv = Long.parseLong(id);
 
-        // call save on budget service with our new object
-        try{
-            BudgetService bServ = new BudgetService();
-            bServ.createBudget(myBudget);
+        // create a budget object (with ID!)
+        Budget updateMe = new Budget("Snack", "Chips", 5, 2.50);
+        updateMe.setId(idConv);
+        updateMe.setDescription(description);
+        updateMe.setCategory(category);
+        updateMe.setBudgetedAmount(baConv);
+        updateMe.setActualAmount(aaConv);
 
-            }catch (Exception x){
-            x.printStackTrace();
+
+        // call update on budget service
+        BudgetService bServ = new BudgetService();
+        try {
+            bServ.update(updateMe);
+        }catch (SQLException e){
+            e.printStackTrace();
             destination = "/exception.jsp";
-            }
-
-        // forward to list page
+        }
+        // forward list
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(destination);
         dispatcher.forward(req,resp);
 

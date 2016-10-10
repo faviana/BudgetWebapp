@@ -7,3 +7,5 @@ CREATE TABLE budget
     bud_actual_amount NUMERIC
 );
 CREATE UNIQUE INDEX budget_bud_id_uindex ON budget (bud_id);
+
+CREATE SEQUENCE BUDGET_SEQ;

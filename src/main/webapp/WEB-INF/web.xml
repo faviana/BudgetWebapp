@@ -45,4 +45,35 @@
         <url-pattern>/create</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>BudgetUpdateServlet</servlet-name>
+        <servlet-class>com.ironyard.servlet.BudgetUpdateServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>BudgetUpdateServlet</servlet-name>
+        <url-pattern>/update</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>BudgetSelectServlet</servlet-name>
+        <servlet-class>com.ironyard.servlet.BudgetSelectServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>BudgetSelectServlet</servlet-name>
+        <url-pattern>/select</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>BudgetDeleteServlet</servlet-name>
+        <servlet-class>com.ironyard.servlet.BudgetDeleteServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>BudgetDeleteServlet</servlet-name>
+        <url-pattern>/delete</url-pattern>
+    </servlet-mapping>
+
+
 </web-app>
